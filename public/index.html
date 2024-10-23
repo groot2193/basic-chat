@@ -1,0 +1,44 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Chat</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div id="login-screen" class="login-screen">
+        <div class="login-box">
+            <h2>Enter your username</h2>
+            <input type="text" id="username-input" placeholder="Username">
+            <button onclick="joinChat()">Join Chat</button>
+        </div>
+    </div>
+
+    <div id="chat-screen" class="chat-container" style="display: none;">
+        <div class="users-sidebar">
+            <h3>Online Users</h3>
+            <ul id="userList" class="user-list"></ul>
+        </div>
+        
+        <div class="chat-main">
+            <div class="chat-header">
+                <div class="user-avatar">U</div>
+                <div class="user-info">
+                    <div class="user-name" id="current-user">Chat Room</div>
+                    <div class="chat-type-indicator" id="chatTypeIndicator">Public Chat</div>
+                </div>
+            </div>
+            <div class="chat-messages" id="messageContainer"></div>
+            <div class="chat-input">
+                <input type="text" id="messageInput" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/client.js"></script>
+</body>
+</html>
